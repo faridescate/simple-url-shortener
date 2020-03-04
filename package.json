@@ -1,0 +1,20 @@
+{
+  "name": "simple-url-shortener",
+  "version": "0.1.0",
+  "description": "simple url shortener",
+  "main": "src/index.js",
+  "author": "Farid Escate",
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon src/index.js",
+    "test": "lab --leaks --verbose",
+    "coverage": "lab --leaks --verbose -r html --coverage-all -o coverage.html "
+  },
+  "dependencies": {
+    "@hapi/hapi": "^19.1.1"
+  },
+  "devDependencies": {
+    "@hapi/code": "^8.0.1",
+    "@hapi/lab": "^22.0.3"
+  }
+}
