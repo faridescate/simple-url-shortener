@@ -6,12 +6,22 @@
   "author": "Farid Escate",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon src/index.js",
+    "start": "yarn migrate && nodemon src/index.js",
+    "migrate": "knex migrate:up --env development",
     "test": "lab --leaks --verbose",
     "coverage": "lab --leaks --verbose -r html --coverage-all -o coverage.html "
   },
   "dependencies": {
-    "@hapi/hapi": "^19.1.1"
+    "@hapi/boom": "^9.0.0",
+    "@hapi/hapi": "^19.1.1",
+    "@hapi/inert": "^6.0.1",
+    "@hapi/joi": "^17.1.0",
+    "@hapi/vision": "^6.0.0",
+    "dotenv": "^8.2.0",
+    "handlebars": "^4.7.3",
+    "hapi-swagger": "^12.1.2",
+    "knex": "^0.20.10",
+    "pg": "^7.18.2"
   },
   "devDependencies": {
     "@hapi/code": "^8.0.1",
