@@ -40,6 +40,8 @@ Server.start = async (config) => {
       },
       relativeTo: __dirname,
       path: 'templates',
+      layout: true,
+      layoutPath: 'templates/layout'
     });
 
     await Server._instance.start();
