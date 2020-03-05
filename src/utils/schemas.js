@@ -40,9 +40,10 @@ const shortUrlSchema = Joi.object({
 });
 
 const hashSchema = Joi.object({
-  shorten: Joi.string()
+  hash: Joi.string()
     .required()
     .pattern(new RegExp('[A-Za-z0-9_-]+$'))
+    .message(`Provided hash is not valid`)
     .example(`yCz1`)
     .default(`Ba`)
 });

@@ -3,9 +3,12 @@
 const schemas = require('../../../utils/schemas');
 
 const validator = {
-  redirect: {
+  getStatus: {
     validate: {
       params: schemas.hashSchema
+    },
+    response: {
+      schema: schemas.linkSchema
     }
   }
 };

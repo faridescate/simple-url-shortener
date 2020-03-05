@@ -11,7 +11,7 @@ const redirect = async (request, h) => {
     if (!link) {
       return h.redirect('/404');
     }
-    await Link.visit({hash});
+    await Link.visit({ hash });
     return h.redirect(link.address).permanent();
 
   } catch (error) {

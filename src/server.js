@@ -5,6 +5,7 @@ const Plugin = require('./plugin');
 
 const helpers = require('./routes/helpers');
 const Aliases = require('./routes/api/aliases');
+const Status = require('./routes/api/Status');
 const Redirect = require('./routes/api/redirect');
 const Shorten = require('./routes/web/shorten');
 
@@ -28,6 +29,7 @@ Server.start = async (config) => {
     await Server._instance.route(helpers);
 
     await Aliases.init(Server._instance, config);
+    await Status.init(Server._instance, config);
     await Shorten.init(Server._instance, config);
     await Redirect.init(Server._instance, config);
 
