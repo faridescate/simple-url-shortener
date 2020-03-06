@@ -1,0 +1,36 @@
+<!-- HERO -->
+<section class="hero is-primary is-bold is-fullheight">
+  <div class="hero-head">
+    <nav class="navbar">
+      <div class="container">
+        <div class="navbar-brand">
+            <a href="/" class="title">
+              re.va
+            </a>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        Your link was clicked {{link.visit_count}} times
+      </h1>
+      <h2 class="subtitle">
+        {{link.address}}
+      </h2>
+      <div class="field has-addons">
+        <div class="control">
+          <input id="shorten" class="input" readonly type="text" placeholder="Short version" value="{{link.shorten}}" size="40">
+        </div>
+        <div class="control">
+          <button class="button is-info copy" data-clipboard-target="#shorten">
+            Copy
+          </button>
+        </div>
+      </div>
+      <p class="help">created on <time datetime="{{link.created_at}}">{{link.created_at}}</time></p>
+    </div>
+  </div>
+</section>

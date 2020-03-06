@@ -44,28 +44,22 @@
       <label class="label">Shorten URL</label>
       <div class="field">
         <p class="control is-expanded">
-          <input id="shorten" class="input" type="text" placeholder="Url in short" value="{{{shorten}}}">
+          <input id="shorten" class="input" type="text" placeholder="Url in short" value="{{{shorten}}}" readonly>
         </p>
       </div>
       <div class="field">
         <p class="control">
-          <button class="button is-success is-outlined is-fullwidth copy" data-clipboard-target="#shorten">
+          {{#if shorten }}
+          <button class="button is-info is-outlined is-fullwidth copy" data-clipboard-target="#shorten" >
             Copy
           </button>
+          {{else}}
+          <button class="button is-info is-outlined is-fullwidth copy" data-clipboard-target="#shorten" disabled>
+            Copy
+          </button>
+          {{/if}}
         </p>
       </div>
   </div>
   <!-- SHORTEN URL -->
 </section>
-<script type="text/javascript">
-  var clipboard = new ClipboardJS('button.copy');
-
-  clipboard.on('success', function (e) {
-    e.trigger.textContent = "Copied!";
-    e.trigger.classList.remove("is-outlined");
-    e.trigger.classList.remove("is-success");
-    e.trigger.classList.add("is-light");
-    e.trigger.classList.add("is-danger");
-  });
-
-</script>
