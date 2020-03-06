@@ -5,7 +5,7 @@ const Plugin = require('./plugin');
 
 const helpers = require('./routes/helpers');
 const apiAliases = require('./routes/api/aliases');
-const apiStatus = require('./routes/api/Status');
+const apiStatus = require('./routes/api/status');
 const apiRedirect = require('./routes/api/redirect');
 const webShorten = require('./routes/web/shorten');
 const webStatus = require('./routes/web/status');
