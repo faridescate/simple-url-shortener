@@ -4,16 +4,17 @@ const Hapi = require('@hapi/hapi');
 const Plugin = require('./plugin');
 
 const helpers = require('./routes/helpers');
-const Aliases = require('./routes/api/aliases');
-const Redirect = require('./routes/api/redirect');
-const Shorten = require('./routes/web/shorten');
+const apiAliases = require('./routes/api/aliases');
+const apiStatus = require('./routes/api/status');
+const apiRedirect = require('./routes/api/redirect');
+const webShorten = require('./routes/web/shorten');
+const webStatus = require('./routes/web/status');
 
 const Server = {};
 
 /**
  * TODO:
  * - unit && e2e testing
- * - Status endpoint
  */
 
 Server.start = async (config) => {
@@ -27,9 +28,11 @@ Server.start = async (config) => {
 
     await Server._instance.route(helpers);
 
-    await Aliases.init(Server._instance, config);
-    await Shorten.init(Server._instance, config);
-    await Redirect.init(Server._instance, config);
+    await apiAliases.init(Server._instance, config);
+    await apiStatus.init(Server._instance, config);
+    await apiRedirect.init(Server._instance, config);
+    await webShorten.init(Server._instance, config);
+    await webStatus.init(Server._instance, config);
 
     await Server._instance.register(Plugin);
     await Server._instance.views({
@@ -38,6 +41,8 @@ Server.start = async (config) => {
       },
       relativeTo: __dirname,
       path: 'templates',
+      layout: true,
+      layoutPath: 'templates/layout'
     });
 
     await Server._instance.start();

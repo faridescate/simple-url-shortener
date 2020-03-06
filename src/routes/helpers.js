@@ -9,9 +9,8 @@ let routes = [
       return h.redirect('/shorten');
     },
     options: {
-      description: 'Dummy health check point',
-      notes: 'Dummy health check point, only verifies if server is alive',
-      tags: ['api']
+      description: 'Redirect to the shorten page',
+      tags: ['api', 'helper', 'views']
     }
   },
   {
@@ -23,7 +22,7 @@ let routes = [
     options: {
       description: 'Dummy health check point',
       notes: 'Dummy health check point, only verifies if server is alive',
-      tags: ['api']
+      tags: ['api', 'helper']
     }
   },
   {
@@ -33,7 +32,8 @@ let routes = [
       return h.view('404');
     },
     options: {
-      description: 'Not found page'
+      description: 'Not found page',
+      tags: ['api', 'helper','views']
     }
   },
 ];

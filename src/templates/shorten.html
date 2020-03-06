@@ -1,87 +1,65 @@
-<!DOCTYPE html>
-<html>
+<!-- HERO -->
+<section class="hero is-primary is-bold">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        re.va
+      </h1>
+      <h2 class="subtitle">
+        Doing your life shorter since 1900
+      </h2>
+    </div>
+  </div>
+</section>
+<!-- END HERO -->
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>re.va - url shortener </title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
-  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
-</head>
-
-<body>
-  <!-- HERO -->
-  <section class="hero is-primary is-bold">
-    <div class="hero-body">
-      <div class="container">
-        <h1 class="title">
-          re.va
-        </h1>
-        <h2 class="subtitle">
-          Doing your life shorter since 1900
-        </h2>
+<section class="section">
+  <!-- ORIGINAL URL -->
+  <div class="container">
+    <form method="POST">
+      <label class="label">Original URL</label>
+      <div class="field">
+        <p class="control is-expanded">
+          <input class="input" name="url" type="text" placeholder="Url to be shorted" value="{{{url}}}">
+        </p>
       </div>
-    </div>
-  </section>
-  <!-- END HERO -->
-  
-  <section class="section">
-    <!-- ORIGINAL URL -->
-    <div class="container">
-      <form method="POST">
-        <label class="label">Original URL</label>
-        <div class="field">
-          <p class="control is-expanded">
-            <input class="input" name="url" type="text" placeholder="Url to be shorted" value="{{{url}}}">
-          </p>
+      <div class="field">
+        <p class="control">
+          <button type="submit" class="button is-link is-outlined is-fullwidth">
+            Make it short, please
+          </button>
+        </p>
+      </div>
+      {{# if error }}
+        <div class="message is-danger">
+          <div class="message-body">{{error}}</div>
         </div>
-        <div class="field">
-          <p class="control">
-            <button type="submit" class="button is-link is-outlined is-fullwidth">
-              Make it short, please
-            </button>
-          </p>
-        </div>
-        {{# if error }}
-          <div class="message is-danger">
-            <div class="message-body">{{error}}</div>
-          </div>
-        {{/if}}
-      </form> <!-- container -->
-    </div>
-    <!-- ORIGINAL URL -->
-    <hr />
-    <!-- SHORTEN URL -->
-    <div class="container">
-        <label class="label">Shorten URL</label>
-        <div class="field">
-          <p class="control is-expanded">
-            <input id="shorten" class="input" type="text" placeholder="Url in short" value="{{{shorten}}}">
-          </p>
-        </div>
-        <div class="field">
-          <p class="control">
-            <button class="button is-success is-outlined is-fullwidth copy" data-clipboard-target="#shorten">
-              Copy
-            </button>
-          </p>
-        </div>
-    </div>
-    <!-- SHORTEN URL -->
-  </section>
-  <script type="text/javascript">
-    var clipboard = new ClipboardJS('button.copy');
-
-    clipboard.on('success', function (e) {
-      e.trigger.textContent = "Copied!";
-      e.trigger.classList.remove("is-outlined");
-      e.trigger.classList.remove("is-success");
-      e.trigger.classList.add("is-light");
-      e.trigger.classList.add("is-danger");
-    });
-
-  </script>
-</body>
-
-</html>
+      {{/if}}
+    </form> <!-- container -->
+  </div>
+  <!-- ORIGINAL URL -->
+  <hr />
+  <!-- SHORTEN URL -->
+  <div class="container">
+      <label class="label">Shorten URL</label>
+      <div class="field">
+        <p class="control is-expanded">
+          <input id="shorten" class="input" type="text" placeholder="Url in short" value="{{{shorten}}}" readonly>
+        </p>
+      </div>
+      <div class="field">
+        <p class="control">
+          {{#if shorten }}
+          <button class="button is-info is-outlined is-fullwidth copy" data-clipboard-target="#shorten" >
+            Copy
+          </button>
+          {{else}}
+          <button class="button is-info is-outlined is-fullwidth copy" data-clipboard-target="#shorten" disabled>
+            Copy
+          </button>
+          {{/if}}
+        </p>
+      </div>
+  </div>
+  <!-- SHORTEN URL -->
+</section>

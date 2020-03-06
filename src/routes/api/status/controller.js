@@ -3,16 +3,15 @@
 const Boom = require('@hapi/boom');
 const Link = require('../../../models/link');
 
-const redirect = async (request, h) => {
+const getStatus = async (request, h) => {
   const { hash } = request.params;
   try {
     let link = await Link.getByHash({ hash });
 
     if (!link) {
-      return h.redirect('/404');
+      return Boom.notFound(`${hash} not found`);
     }
-    await Link.visit({ hash });
-    return h.redirect(link.address).permanent();
+    return link;
 
   } catch (error) {
 
@@ -22,5 +21,5 @@ const redirect = async (request, h) => {
 }
 
 module.exports = {
-  redirect,
+  getStatus,
 }
