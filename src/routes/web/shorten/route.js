@@ -15,6 +15,7 @@ const Route = async function (server, config) {
     },
     options: {
       description: 'Shorten main view',
+      tags: ['api', 'views']
     }
   });
 
@@ -45,7 +46,8 @@ const Route = async function (server, config) {
           }
           return h.continue;
         },
-      }
+      },
+      tags: ['api', 'views']
     }
   });
 }

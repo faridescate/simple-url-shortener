@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>re.va - url shortener </title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
+</head>
+
+<body>
+  {{{content}}}
+
+  <script type="text/javascript">
+    var clipboard = new ClipboardJS('button.copy');
+
+    clipboard.on('success', function (e) {
+      e.trigger.textContent = "Copied!";
+      e.trigger.classList.remove("is-outlined");
+      e.trigger.classList.remove("is-info");
+      e.trigger.classList.add("is-warning");
+    });
+
+  </script>
+
+</body>
+
+</html>

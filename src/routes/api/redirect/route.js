@@ -13,10 +13,9 @@ const Route = async function (server, config) {
       path: '/r/{hash}',
       handler: Controllers.redirect.redirect,
       options: {
-        description: 'Endpoint to produce the shortened URL should',
-        notes: 'The shortened URL should is returned in the payload of the response',
+        description: 'Use headers to redirect to the original URL',
         validate: validator.redirect.validate,
-        tags: ['api']
+        tags: ['api', 'redirect']
       }
     }
   ]);

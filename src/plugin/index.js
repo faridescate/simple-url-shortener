@@ -20,8 +20,8 @@ plugins.push(
         'title': Package.description,
         'version': Package.version
       },
-      pathPrefixSize: 1,
-      payloadType: 'form'
+      payloadType: 'form',
+      grouping: 'tags'
     }
   }
 );
