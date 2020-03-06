@@ -30,7 +30,10 @@
           </button>
         </div>
       </div>
-      <p class="help">created on <time datetime="{{link.created_at}}">{{link.created_at}}</time></p>
+      <p class="help">created on <time id="created_at" datetime="{{link.created_at}}">{{link.created_at}}</time></p>
     </div>
   </div>
+  <script type="text/javascript">
+    document.getElementById("created_at").innerHTML = Date("{{link.created_at}}").toLocaleString()
+  </script>
 </section>
